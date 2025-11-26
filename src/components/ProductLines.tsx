@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
-import platinumImage from "@/assets/platinum-equipment.jpg";
-import goldImage from "@/assets/gold-equipment.jpg";
+import platinumImage from "@/assets/platinum-equipment.png";
+import goldImage from "@/assets/gold-equipment.png";
 import silverImage from "@/assets/silver-equipment.jpg";
 
 export const ProductLines = () => {
