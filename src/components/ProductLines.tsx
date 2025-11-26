@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
 import platinumImage from "@/assets/platinum-equipment.png";
 import goldImage from "@/assets/gold-equipment.png";
-import silverImage from "@/assets/silver-equipment.jpg";
+import pesoLivreImage from "@/assets/peso-livre.jpg";
 
 export const ProductLines = () => {
   const products = [
@@ -32,11 +32,11 @@ export const ProductLines = () => {
     },
     {
       badge: "ESSENCIAL",
-      title: "Linha Silver",
-      description: "Equipamentos essenciais com a qualidade Apollo, ideal para projetos que buscam funcionalidade e durabilidade.",
-      image: silverImage,
+      title: "Peso Livre",
+      description: "Equipamentos de peso livre com a qualidade Apollo, ideal para treinos funcionais e de alta performance.",
+      image: pesoLivreImage,
       features: [
-        "Design funcional e clean",
+        "Design funcional e robusto",
         "Estrutura em aço de qualidade",
         "Ótimo custo-benefício",
       ],
