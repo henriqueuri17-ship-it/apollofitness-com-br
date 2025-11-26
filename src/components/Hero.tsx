@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
-import heroImage from "@/assets/hero-gym.jpg";
+import heroImage from "@/assets/hero-main.png";
 
 export const Hero = () => {
   return (
