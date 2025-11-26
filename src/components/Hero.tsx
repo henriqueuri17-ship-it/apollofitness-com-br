@@ -3,6 +3,9 @@ import { MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-main.png";
 
 export const Hero = () => {
+  const phoneNumber = "5517997712913";
+  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -35,9 +38,11 @@ export const Hero = () => {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom-10 duration-700 delay-300">
-          <Button size="lg" className="gap-2 text-lg px-8 py-6 shadow-glow">
-            <MessageCircle className="w-5 h-5" />
-            Falar com Especialista
+          <Button size="lg" className="gap-2 text-lg px-8 py-6 shadow-glow" asChild>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-5 h-5" />
+              Falar com Especialista
+            </a>
           </Button>
           <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
             Conhecer Produtos
