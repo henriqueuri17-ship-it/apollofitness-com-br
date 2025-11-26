@@ -8,7 +8,7 @@ export const TrustBadges = () => {
     },
     {
       icon: Award,
-      label: "+2000 academias equipadas",
+      label: "+800 academias equipadas",
     },
     {
       icon: Shield,
