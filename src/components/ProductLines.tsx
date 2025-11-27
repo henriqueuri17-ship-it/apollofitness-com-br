@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check } from "lucide-react";
+import { Link } from "react-router-dom";
 import platinumImage from "@/assets/platinum-equipment.png";
 import goldImage from "@/assets/gold-equipment.png";
 import pesoLivreImage from "@/assets/peso-livre.jpg";
@@ -13,6 +14,7 @@ export const ProductLines = () => {
       title: "Linha Platinum",
       description: "Nossa linha premium totalmente carenada, ideal para academias que buscam o máximo em qualidade, durabilidade e design sofisticado.",
       image: platinumImage,
+      link: "/linha-platinum",
       features: [
         "Acabamento 100% carenado premium",
         "Estrutura em aço carbono reforçado",
@@ -24,6 +26,7 @@ export const ProductLines = () => {
       title: "Linha Gold",
       description: "Linha semi-carenada com excelente custo-benefício, perfeita para academias que buscam qualidade profissional.",
       image: goldImage,
+      link: "/linha-gold",
       features: [
         "Acabamento semi-carenado elegante",
         "Estrutura robusta em aço",
@@ -35,6 +38,7 @@ export const ProductLines = () => {
       title: "Peso Livre",
       description: "Equipamentos de peso livre com a qualidade Apollo, ideal para treinos funcionais e de alta performance.",
       image: pesoLivreImage,
+      link: "/peso-livre",
       features: [
         "Design funcional e robusto",
         "Estrutura em aço de qualidade",
@@ -93,8 +97,8 @@ export const ProductLines = () => {
               </CardContent>
 
               <CardFooter>
-                <Button className="w-full" variant="outline">
-                  Solicitar Catálogo {product.title.split(" ")[1]}
+                <Button asChild className="w-full" variant="outline">
+                  <Link to={product.link}>Conferir</Link>
                 </Button>
               </CardFooter>
             </Card>
