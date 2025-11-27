@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import apolloLogo from "@/assets/apollo-logo.png";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
@@ -20,8 +21,8 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#inicio" className="font-heading text-2xl font-bold text-primary">
-            Apollo Fitness
+          <a href="#inicio">
+            <img src={apolloLogo} alt="Apollo Fitness" className="h-8" />
           </a>
 
           {/* Desktop Menu */}
