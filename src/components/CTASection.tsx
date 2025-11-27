@@ -44,7 +44,7 @@ export const CTASection = () => {
               className="gap-2 text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
               asChild
             >
-              <a href={phoneUrl}>
+              <a href={phoneUrl} target="_blank" rel="noopener noreferrer">
                 <Phone className="w-5 h-5" />
                 Ligar Agora
               </a>
