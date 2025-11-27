@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustBadges } from "@/components/TrustBadges";
 import { Features } from "@/components/Features";
@@ -9,12 +10,21 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Hero />
+      <Navbar />
+      <section id="inicio">
+        <Hero />
+      </section>
       <TrustBadges />
       <Features />
-      <ProductLines />
-      <CTASection />
-      <Footer />
+      <section id="linhas">
+        <ProductLines />
+      </section>
+      <section id="orcamento">
+        <CTASection />
+      </section>
+      <section id="contatos">
+        <Footer />
+      </section>
       <WhatsAppButton />
     </div>
   );
