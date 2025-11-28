@@ -5,6 +5,29 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import platinumImage from "@/assets/platinum-equipment.png";
+import mesaFlexora from "@/assets/platinum/mesa-flexora.jpg";
+import bicepsScott from "@/assets/platinum/biceps-scott.jpg";
+import legPress from "@/assets/platinum/leg-press.jpg";
+import graviton from "@/assets/platinum/graviton.jpg";
+import peckDeck from "@/assets/platinum/peck-deck.jpg";
+import abdominalRotatorio from "@/assets/platinum/abdominal-rotatorio.jpg";
+import crossOver from "@/assets/platinum/cross-over.jpg";
+import remadaSentado from "@/assets/platinum/remada-sentado.jpg";
+import gluteo from "@/assets/platinum/gluteo.jpg";
+import triceps from "@/assets/platinum/triceps.jpg";
+
+const equipments = [
+  { name: "Mesa Flexora", image: mesaFlexora },
+  { name: "Bíceps Scott", image: bicepsScott },
+  { name: "Leg Press", image: legPress },
+  { name: "Graviton", image: graviton },
+  { name: "Peck Deck", image: peckDeck },
+  { name: "Abdominal Rotatório", image: abdominalRotatorio },
+  { name: "Cross Over", image: crossOver },
+  { name: "Remada Sentado", image: remadaSentado },
+  { name: "Glúteo", image: gluteo },
+  { name: "Tríceps", image: triceps },
+];
 
 const LinhaPlatinum = () => {
   const whatsappUrl = "https://wa.me/5517997712913?text=Olá! Gostaria de saber mais sobre a Linha Platinum.";
@@ -65,17 +88,25 @@ const LinhaPlatinum = () => {
               Equipamentos da Linha Platinum
             </h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              Em breve, fotos e informações detalhadas de cada aparelho.
+              Conheça nossos equipamentos com acabamento premium e design sofisticado.
             </p>
             
-            {/* Placeholder for equipment gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
+              {equipments.map((equipment) => (
                 <div 
-                  key={item} 
-                  className="bg-muted/50 rounded-lg aspect-square flex items-center justify-center border border-border"
+                  key={equipment.name} 
+                  className="group bg-background rounded-lg overflow-hidden border border-border shadow-md hover:shadow-xl transition-shadow duration-300"
                 >
-                  <span className="text-muted-foreground">Equipamento {item}</span>
+                  <div className="aspect-square overflow-hidden bg-muted">
+                    <img 
+                      src={equipment.image} 
+                      alt={equipment.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-heading font-semibold text-lg">{equipment.name}</h3>
+                  </div>
                 </div>
               ))}
             </div>
