@@ -2,8 +2,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, Plus, Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 import platinumImage from "@/assets/platinum-equipment.png";
 import mesaFlexora from "@/assets/platinum/mesa-flexora.jpg";
 import bicepsScott from "@/assets/platinum/biceps-scott.jpg";
@@ -23,26 +24,40 @@ import smithMachine from "@/assets/platinum/smith-machine.jpg";
 import flexoraDeitado from "@/assets/platinum/flexora-deitado.jpg";
 
 const equipments = [
-  { name: "Mesa Flexora", image: mesaFlexora },
-  { name: "Bíceps Scott", image: bicepsScott },
-  { name: "Leg Press", image: legPress },
-  { name: "Graviton", image: graviton },
-  { name: "Peck Deck", image: peckDeck },
-  { name: "Abdominal Rotatório", image: abdominalRotatorio },
-  { name: "Cross Over", image: crossOver },
-  { name: "Remada Sentado", image: remadaSentado },
-  { name: "Glúteo", image: gluteo },
-  { name: "Tríceps", image: triceps },
-  { name: "Cadeira Extensora", image: cadeiraExtensora },
-  { name: "Adutor/Abdutor", image: adutorAbdutor },
-  { name: "Pulley", image: pulley },
-  { name: "Peck Fly", image: peckFly },
-  { name: "Smith Machine", image: smithMachine },
-  { name: "Flexora Deitado", image: flexoraDeitado },
+  { id: "platinum-mesa-flexora", name: "Mesa Flexora", image: mesaFlexora },
+  { id: "platinum-biceps-scott", name: "Bíceps Scott", image: bicepsScott },
+  { id: "platinum-leg-press", name: "Leg Press", image: legPress },
+  { id: "platinum-graviton", name: "Graviton", image: graviton },
+  { id: "platinum-peck-deck", name: "Peck Deck", image: peckDeck },
+  { id: "platinum-abdominal-rotatorio", name: "Abdominal Rotatório", image: abdominalRotatorio },
+  { id: "platinum-cross-over", name: "Cross Over", image: crossOver },
+  { id: "platinum-remada-sentado", name: "Remada Sentado", image: remadaSentado },
+  { id: "platinum-gluteo", name: "Glúteo", image: gluteo },
+  { id: "platinum-triceps", name: "Tríceps", image: triceps },
+  { id: "platinum-cadeira-extensora", name: "Cadeira Extensora", image: cadeiraExtensora },
+  { id: "platinum-adutor-abdutor", name: "Adutor/Abdutor", image: adutorAbdutor },
+  { id: "platinum-pulley", name: "Pulley", image: pulley },
+  { id: "platinum-peck-fly", name: "Peck Fly", image: peckFly },
+  { id: "platinum-smith-machine", name: "Smith Machine", image: smithMachine },
+  { id: "platinum-flexora-deitado", name: "Flexora Deitado", image: flexoraDeitado },
 ];
 
 const LinhaPlatinum = () => {
+  const { addItem, removeItem, isInCart } = useCart();
   const whatsappUrl = "https://wa.me/5517997712913?text=Olá! Gostaria de saber mais sobre a Linha Platinum.";
+
+  const handleToggleItem = (equipment: typeof equipments[0]) => {
+    if (isInCart(equipment.id)) {
+      removeItem(equipment.id);
+    } else {
+      addItem({
+        id: equipment.id,
+        name: equipment.name,
+        image: equipment.image,
+        line: "Linha Platinum",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -100,27 +115,54 @@ const LinhaPlatinum = () => {
               Equipamentos da Linha Platinum
             </h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              Conheça nossos equipamentos com acabamento premium e design sofisticado.
+              Selecione os equipamentos desejados e adicione ao carrinho de orçamento.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {equipments.map((equipment) => (
-                <div 
-                  key={equipment.name} 
-                  className="group bg-background rounded-lg overflow-hidden border border-border shadow-md hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="aspect-square overflow-hidden bg-muted">
-                    <img 
-                      src={equipment.image} 
-                      alt={equipment.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+              {equipments.map((equipment) => {
+                const inCart = isInCart(equipment.id);
+                return (
+                  <div 
+                    key={equipment.id} 
+                    className={`group bg-background rounded-lg overflow-hidden border shadow-md hover:shadow-xl transition-all duration-300 ${
+                      inCart ? "border-primary ring-2 ring-primary/20" : "border-border"
+                    }`}
+                  >
+                    <div className="aspect-square overflow-hidden bg-muted relative">
+                      <img 
+                        src={equipment.image} 
+                        alt={equipment.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {inCart && (
+                        <div className="absolute top-3 right-3 bg-primary text-primary-foreground rounded-full p-1">
+                          <Check className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-4 flex items-center justify-between">
+                      <h3 className="font-heading font-semibold text-lg">{equipment.name}</h3>
+                      <Button
+                        variant={inCart ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleToggleItem(equipment)}
+                      >
+                        {inCart ? (
+                          <>
+                            <Check className="w-4 h-4 mr-1" />
+                            Adicionado
+                          </>
+                        ) : (
+                          <>
+                            <Plus className="w-4 h-4 mr-1" />
+                            Adicionar
+                          </>
+                        )}
+                      </Button>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-heading font-semibold text-lg">{equipment.name}</h3>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
