@@ -15,6 +15,12 @@ import crossOver from "@/assets/platinum/cross-over.jpg";
 import remadaSentado from "@/assets/platinum/remada-sentado.jpg";
 import gluteo from "@/assets/platinum/gluteo.jpg";
 import triceps from "@/assets/platinum/triceps.jpg";
+import cadeiraExtensora from "@/assets/platinum/cadeira-extensora.jpg";
+import adutorAbdutor from "@/assets/platinum/adutor-abdutor.jpg";
+import pulley from "@/assets/platinum/pulley.jpg";
+import peckFly from "@/assets/platinum/peck-fly.jpg";
+import smithMachine from "@/assets/platinum/smith-machine.jpg";
+import flexoraDeitado from "@/assets/platinum/flexora-deitado.jpg";
 
 const equipments = [
   { name: "Mesa Flexora", image: mesaFlexora },
@@ -27,6 +33,12 @@ const equipments = [
   { name: "Remada Sentado", image: remadaSentado },
   { name: "Glúteo", image: gluteo },
   { name: "Tríceps", image: triceps },
+  { name: "Cadeira Extensora", image: cadeiraExtensora },
+  { name: "Adutor/Abdutor", image: adutorAbdutor },
+  { name: "Pulley", image: pulley },
+  { name: "Peck Fly", image: peckFly },
+  { name: "Smith Machine", image: smithMachine },
+  { name: "Flexora Deitado", image: flexoraDeitado },
 ];
 
 const LinhaPlatinum = () => {
