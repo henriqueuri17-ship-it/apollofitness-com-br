@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CartButton } from "@/components/CartButton";
 import apolloLogo from "@/assets/apollo-logo.png";
 
 const navItems = [
@@ -39,7 +40,8 @@ export const Navbar = () => {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <CartButton />
             <Button size="sm" className="gap-2" asChild>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-4 h-4" />
@@ -49,13 +51,16 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <CartButton />
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
