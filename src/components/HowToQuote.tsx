@@ -1,0 +1,67 @@
+import { ShoppingCart, MousePointerClick, ClipboardList, MessageCircle } from "lucide-react";
+
+const steps = [
+  {
+    icon: MousePointerClick,
+    step: "1",
+    title: "Navegue pelas Linhas",
+    description: "Acesse a linha de equipamentos desejada (Platinum, Gold ou Peso Livre) e veja todos os produtos disponíveis.",
+  },
+  {
+    icon: ShoppingCart,
+    step: "2",
+    title: "Adicione ao Carrinho",
+    description: "Clique em \"Adicionar\" nos equipamentos que deseja incluir no seu orçamento.",
+  },
+  {
+    icon: ClipboardList,
+    step: "3",
+    title: "Preencha seus Dados",
+    description: "No carrinho de orçamento, informe seu nome, e-mail, telefone e cidade.",
+  },
+  {
+    icon: MessageCircle,
+    step: "4",
+    title: "Receba pelo WhatsApp",
+    description: "Envie sua solicitação e nossa equipe entrará em contato com o orçamento personalizado.",
+  },
+];
+
+export const HowToQuote = () => {
+  return (
+    <section className="py-16 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+            Como Solicitar seu Orçamento
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Siga os passos abaixo para montar seu orçamento de forma rápida e fácil
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((item, index) => (
+            <div
+              key={index}
+              className="relative bg-card border border-border rounded-xl p-6 text-center hover:border-primary/50 transition-colors"
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                {item.step}
+              </div>
+              <div className="w-14 h-14 mx-auto mb-4 mt-2 bg-primary/10 rounded-full flex items-center justify-center">
+                <item.icon className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold text-lg mb-2">
+                {item.title}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
