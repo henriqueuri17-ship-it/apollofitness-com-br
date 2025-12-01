@@ -71,6 +71,19 @@ export const ProductLines = () => {
         "Design exclusivo",
       ],
     },
+    {
+      badge: "CARDIO",
+      badgeColor: "bg-red-500",
+      title: "Linha Cardio",
+      description: "Equipamentos de cardio de alta performance para treinos aeróbicos intensos. Esteiras, bicicletas e elípticos.",
+      image: goldImage,
+      link: "/linha-cardio",
+      features: [
+        "Esteiras profissionais",
+        "Bicicletas ergométricas",
+        "Elípticos e transport",
+      ],
+    },
   ];
 
   return (
