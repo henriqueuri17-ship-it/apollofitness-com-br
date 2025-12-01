@@ -1,18 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-main.png";
-
 export const Hero = () => {
   const phoneNumber = "5517997712913";
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
-
-  return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center" style={{
+      backgroundImage: `url(${heroImage})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/80 to-background"></div>
       </div>
 
@@ -21,7 +17,7 @@ export const Hero = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-background/20 backdrop-blur-sm mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-          <span className="text-sm font-medium text-foreground uppercase tracking-wider">🏭 Fabricante Nacional</span>
+          <span className="text-sm font-medium text-foreground uppercase tracking-wider">FABRICAÇÃO 100% NACIONAL</span>
         </div>
 
         {/* Main Headline */}
@@ -49,6 +45,5 @@ export const Hero = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };

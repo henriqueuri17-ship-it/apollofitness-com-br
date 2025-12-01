@@ -1,13 +1,11 @@
 import { Mail, MapPin, Phone } from "lucide-react";
-
 export const Footer = () => {
-  return (
-    <footer className="bg-card border-t border-border py-12">
+  return <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-heading text-2xl font-bold mb-4 text-primary">Apollo Fitness</h3>
+            <h3 className="font-heading text-2xl font-bold mb-4 text-primary">Apollo Fitness Equipamentos</h3>
             <p className="text-muted-foreground mb-4">
               Equipamentos premium para academias profissionais. Mais de 15 anos transformando 
               projetos em realidade.
@@ -20,7 +18,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>(11) 9999-9999</span>
+                <span>(17) 99771-2913</span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4 text-primary" />
@@ -28,7 +26,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>São Paulo, SP - Brasil</span>
+                <span>São José do Rio Preto, SP - Brasil</span>
               </li>
             </ul>
           </div>
@@ -65,6 +63,5 @@ export const Footer = () => {
           <p>© 2024 Apollo Fitness. Todos os direitos reservados.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
