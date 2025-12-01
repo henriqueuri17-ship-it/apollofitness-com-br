@@ -17,10 +17,10 @@ const Index = () => {
       </section>
       <TrustBadges />
       <Features />
+      <HowToQuote />
       <section id="linhas">
         <ProductLines />
       </section>
-      <HowToQuote />
       <section id="orcamento">
         <CTASection />
       </section>
