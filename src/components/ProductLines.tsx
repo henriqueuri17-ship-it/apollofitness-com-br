@@ -45,6 +45,32 @@ export const ProductLines = () => {
         "Ótimo custo-benefício",
       ],
     },
+    {
+      badge: "FUNCIONAL",
+      badgeColor: "bg-orange-500",
+      title: "Linha Articulados",
+      description: "Equipamentos com movimentos articulados que proporcionam maior amplitude e biomecânica natural.",
+      image: pesoLivreImage,
+      link: "/linha-articulados",
+      features: [
+        "Movimento articulado natural",
+        "Maior amplitude de movimento",
+        "Ergonomia avançada",
+      ],
+    },
+    {
+      badge: "ELITE",
+      badgeColor: "bg-cyan-500",
+      title: "Linha Pro Diamond",
+      description: "Nossa linha mais sofisticada com acabamento premium e tecnologia de ponta para academias de alto padrão.",
+      image: platinumImage,
+      link: "/linha-pro-diamond",
+      features: [
+        "Acabamento Diamond exclusivo",
+        "Tecnologia de ponta",
+        "Design exclusivo",
+      ],
+    },
   ];
 
   return (
@@ -60,7 +86,7 @@ export const ProductLines = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <Card
               key={index}
@@ -75,7 +101,7 @@ export const ProductLines = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                <Badge className={`absolute top-4 left-4 text-white ${product.badgeColor || "bg-primary"}`}>
                   {product.badge}
                 </Badge>
               </div>
