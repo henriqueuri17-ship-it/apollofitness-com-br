@@ -2,12 +2,46 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, Plus, Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 import goldImage from "@/assets/gold-equipment.png";
+
+// Equipment images
+import pulleyImg from "@/assets/gold/pulley.jpg";
+import gravitonImg from "@/assets/gold/graviton.jpg";
+import supinoImg from "@/assets/gold/supino.jpg";
+import mesaFlexoraImg from "@/assets/gold/mesa-flexora.jpg";
+import adutorAbdutorImg from "@/assets/gold/adutor-abdutor.jpg";
+import crossOverImg from "@/assets/gold/cross-over.jpg";
+import crossOverDuploImg from "@/assets/gold/cross-over-duplo.jpg";
+
+const equipments = [
+  { id: "gold-pulley", name: "Pulley", image: pulleyImg },
+  { id: "gold-graviton", name: "Graviton", image: gravitonImg },
+  { id: "gold-supino", name: "Supino Sentado", image: supinoImg },
+  { id: "gold-mesa-flexora", name: "Mesa Flexora", image: mesaFlexoraImg },
+  { id: "gold-adutor-abdutor", name: "Adutor/Abdutor", image: adutorAbdutorImg },
+  { id: "gold-cross-over", name: "Cross Over", image: crossOverImg },
+  { id: "gold-cross-over-duplo", name: "Cross Over Duplo", image: crossOverDuploImg },
+];
 
 const LinhaGold = () => {
   const whatsappUrl = "https://wa.me/5517997712913?text=Olá! Gostaria de saber mais sobre a Linha Gold.";
+  const { addItem, removeItem, isInCart } = useCart();
+
+  const handleToggleItem = (equipment: typeof equipments[0]) => {
+    if (isInCart(equipment.id)) {
+      removeItem(equipment.id);
+    } else {
+      addItem({
+        id: equipment.id,
+        name: equipment.name,
+        image: equipment.image,
+        line: "Linha Gold",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -65,19 +99,49 @@ const LinhaGold = () => {
               Equipamentos da Linha Gold
             </h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              Em breve, fotos e informações detalhadas de cada aparelho.
+              Selecione os equipamentos desejados e adicione ao seu orçamento.
             </p>
             
-            {/* Placeholder for equipment gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div 
-                  key={item} 
-                  className="bg-muted/50 rounded-lg aspect-square flex items-center justify-center border border-border"
-                >
-                  <span className="text-muted-foreground">Equipamento {item}</span>
-                </div>
-              ))}
+              {equipments.map((equipment) => {
+                const inCart = isInCart(equipment.id);
+                return (
+                  <div 
+                    key={equipment.id} 
+                    className={`bg-background rounded-lg overflow-hidden border transition-all ${
+                      inCart ? "border-primary ring-2 ring-primary/20" : "border-border hover:border-primary/50"
+                    }`}
+                  >
+                    <div className="aspect-square bg-muted/30 p-4">
+                      <img 
+                        src={equipment.image} 
+                        alt={equipment.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div className="p-4 flex items-center justify-between">
+                      <h3 className="font-semibold text-lg">{equipment.name}</h3>
+                      <Button
+                        variant={inCart ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleToggleItem(equipment)}
+                      >
+                        {inCart ? (
+                          <>
+                            <Check className="w-4 h-4 mr-1" />
+                            Adicionado
+                          </>
+                        ) : (
+                          <>
+                            <Plus className="w-4 h-4 mr-1" />
+                            Adicionar
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
