@@ -15,6 +15,14 @@ import mesaFlexoraImg from "@/assets/gold/mesa-flexora.jpg";
 import adutorAbdutorImg from "@/assets/gold/adutor-abdutor.jpg";
 import crossOverImg from "@/assets/gold/cross-over.jpg";
 import crossOverDuploImg from "@/assets/gold/cross-over-duplo.jpg";
+import gluteoImg from "@/assets/gold/gluteo.jpg";
+import tricepsImg from "@/assets/gold/triceps.jpg";
+import peckFlyImg from "@/assets/gold/peck-fly.jpg";
+import gluteo2Img from "@/assets/gold/gluteo-2.jpg";
+import peckDeckImg from "@/assets/gold/peck-deck.jpg";
+import remadaSentadoImg from "@/assets/gold/remada-sentado.jpg";
+import pulleyDuploImg from "@/assets/gold/pulley-duplo.jpg";
+import cadeiraExtensoraImg from "@/assets/gold/cadeira-extensora.jpg";
 
 const equipments = [
   { id: "gold-pulley", name: "Pulley", image: pulleyImg },
@@ -24,6 +32,14 @@ const equipments = [
   { id: "gold-adutor-abdutor", name: "Adutor/Abdutor", image: adutorAbdutorImg },
   { id: "gold-cross-over", name: "Cross Over", image: crossOverImg },
   { id: "gold-cross-over-duplo", name: "Cross Over Duplo", image: crossOverDuploImg },
+  { id: "gold-gluteo", name: "Glúteo", image: gluteoImg },
+  { id: "gold-triceps", name: "Tríceps", image: tricepsImg },
+  { id: "gold-peck-fly", name: "Peck Fly", image: peckFlyImg },
+  { id: "gold-gluteo-2", name: "Glúteo Máquina", image: gluteo2Img },
+  { id: "gold-peck-deck", name: "Peck Deck", image: peckDeckImg },
+  { id: "gold-remada-sentado", name: "Remada Sentado", image: remadaSentadoImg },
+  { id: "gold-pulley-duplo", name: "Pulley Duplo", image: pulleyDuploImg },
+  { id: "gold-cadeira-extensora", name: "Cadeira Extensora", image: cadeiraExtensoraImg },
 ];
 
 const LinhaGold = () => {
