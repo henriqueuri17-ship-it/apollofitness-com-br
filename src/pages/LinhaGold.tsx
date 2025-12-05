@@ -33,6 +33,16 @@ import crossOverAbertoImg from "@/assets/gold/cross-over-aberto.jpg";
 import bicepsScottImg from "@/assets/gold/biceps-scott.jpg";
 import comboStationImg from "@/assets/gold/combo-station.jpg";
 import crossOverPremiumImg from "@/assets/gold/cross-over-premium.jpg";
+import flexoraExtensoraImg from "@/assets/gold/flexora-extensora.jpg";
+import remadaArticuladaImg from "@/assets/gold/remada-articulada.jpg";
+import agachamentoImg from "@/assets/gold/agachamento.jpg";
+import abdominalImg from "@/assets/gold/abdominal.jpg";
+import remadaDeitadoImg from "@/assets/gold/remada-deitado.jpg";
+import pulleyBancoImg from "@/assets/gold/pulley-banco.jpg";
+import bicepsConcentradoImg from "@/assets/gold/biceps-concentrado.jpg";
+import gluteoPlataformaImg from "@/assets/gold/gluteo-plataforma.jpg";
+import pulleySimplesImg from "@/assets/gold/pulley-simples.jpg";
+import gluteoPanturrilhaImg from "@/assets/gold/gluteo-panturrilha.jpg";
 
 const equipments = [
   { id: "gold-pulley", name: "Pulley", image: pulleyImg },
@@ -60,6 +70,16 @@ const equipments = [
   { id: "gold-biceps-scott", name: "Bíceps Scott", image: bicepsScottImg },
   { id: "gold-combo-station", name: "Combo Station", image: comboStationImg },
   { id: "gold-cross-over-premium", name: "Cross Over Premium", image: crossOverPremiumImg },
+  { id: "gold-flexora-extensora", name: "Flexora/Extensora", image: flexoraExtensoraImg },
+  { id: "gold-remada-articulada", name: "Remada Articulada", image: remadaArticuladaImg },
+  { id: "gold-agachamento", name: "Agachamento", image: agachamentoImg },
+  { id: "gold-abdominal", name: "Abdominal", image: abdominalImg },
+  { id: "gold-remada-deitado", name: "Remada Deitado", image: remadaDeitadoImg },
+  { id: "gold-pulley-banco", name: "Pulley com Banco", image: pulleyBancoImg },
+  { id: "gold-biceps-concentrado", name: "Bíceps Concentrado", image: bicepsConcentradoImg },
+  { id: "gold-gluteo-plataforma", name: "Glúteo Plataforma", image: gluteoPlataformaImg },
+  { id: "gold-pulley-simples", name: "Pulley Simples", image: pulleySimplesImg },
+  { id: "gold-gluteo-panturrilha", name: "Glúteo/Panturrilha", image: gluteoPanturrilhaImg },
 ];
 
 const LinhaGold = () => {
