@@ -23,6 +23,16 @@ import peckDeckImg from "@/assets/gold/peck-deck.jpg";
 import remadaSentadoImg from "@/assets/gold/remada-sentado.jpg";
 import pulleyDuploImg from "@/assets/gold/pulley-duplo.jpg";
 import cadeiraExtensoraImg from "@/assets/gold/cadeira-extensora.jpg";
+import legPressImg from "@/assets/gold/leg-press.jpg";
+import smithMachineImg from "@/assets/gold/smith-machine.jpg";
+import desenvolvimentoImg from "@/assets/gold/desenvolvimento.jpg";
+import flexoraSentadoImg from "@/assets/gold/flexora-sentado.jpg";
+import remadaBaixaImg from "@/assets/gold/remada-baixa.jpg";
+import pulleyCarenatoImg from "@/assets/gold/pulley-carenado.jpg";
+import crossOverAbertoImg from "@/assets/gold/cross-over-aberto.jpg";
+import bicepsScottImg from "@/assets/gold/biceps-scott.jpg";
+import comboStationImg from "@/assets/gold/combo-station.jpg";
+import crossOverPremiumImg from "@/assets/gold/cross-over-premium.jpg";
 
 const equipments = [
   { id: "gold-pulley", name: "Pulley", image: pulleyImg },
@@ -40,6 +50,16 @@ const equipments = [
   { id: "gold-remada-sentado", name: "Remada Sentado", image: remadaSentadoImg },
   { id: "gold-pulley-duplo", name: "Pulley Duplo", image: pulleyDuploImg },
   { id: "gold-cadeira-extensora", name: "Cadeira Extensora", image: cadeiraExtensoraImg },
+  { id: "gold-leg-press", name: "Leg Press", image: legPressImg },
+  { id: "gold-smith-machine", name: "Smith Machine", image: smithMachineImg },
+  { id: "gold-desenvolvimento", name: "Desenvolvimento", image: desenvolvimentoImg },
+  { id: "gold-flexora-sentado", name: "Flexora Sentado", image: flexoraSentadoImg },
+  { id: "gold-remada-baixa", name: "Remada Baixa", image: remadaBaixaImg },
+  { id: "gold-pulley-carenado", name: "Pulley Carenado", image: pulleyCarenatoImg },
+  { id: "gold-cross-over-aberto", name: "Cross Over Aberto", image: crossOverAbertoImg },
+  { id: "gold-biceps-scott", name: "Bíceps Scott", image: bicepsScottImg },
+  { id: "gold-combo-station", name: "Combo Station", image: comboStationImg },
+  { id: "gold-cross-over-premium", name: "Cross Over Premium", image: crossOverPremiumImg },
 ];
 
 const LinhaGold = () => {
