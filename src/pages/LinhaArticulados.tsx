@@ -2,11 +2,51 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
+
+// Import equipment images
+import legPress from "@/assets/articulados/leg-press.jpg";
+import supinoInclinado from "@/assets/articulados/supino-inclinado.jpg";
+import supinoDeclinado from "@/assets/articulados/supino-declinado.jpg";
+import remada from "@/assets/articulados/remada.jpg";
+import supinoSentado from "@/assets/articulados/supino-sentado.jpg";
+import desenvolvimento from "@/assets/articulados/desenvolvimento.jpg";
+import gluteo from "@/assets/articulados/gluteo.jpg";
+import biceps from "@/assets/articulados/biceps.jpg";
+import peckDeck from "@/assets/articulados/peck-deck.jpg";
+
+const equipment = [
+  { id: "art-1", name: "Leg Press Articulado", image: legPress },
+  { id: "art-2", name: "Supino Inclinado Articulado", image: supinoInclinado },
+  { id: "art-3", name: "Supino Declinado Articulado", image: supinoDeclinado },
+  { id: "art-4", name: "Remada Articulada", image: remada },
+  { id: "art-5", name: "Supino Sentado Articulado", image: supinoSentado },
+  { id: "art-6", name: "Desenvolvimento Articulado", image: desenvolvimento },
+  { id: "art-7", name: "Glúteo Articulado", image: gluteo },
+  { id: "art-8", name: "Bíceps Articulado", image: biceps },
+  { id: "art-9", name: "Peck Deck Articulado", image: peckDeck },
+];
 
 const LinhaArticulados = () => {
   const whatsappUrl = "https://wa.me/5517997712913?text=Olá! Gostaria de saber mais sobre a Linha Articulados.";
+  const { addItem } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToQuote = (item: { id: string; name: string; image: string }) => {
+    addItem({
+      id: item.id,
+      name: item.name,
+      line: "Linha Articulados",
+      image: item.image,
+    });
+    toast({
+      title: "Adicionado ao orçamento",
+      description: `${item.name} foi adicionado à sua lista.`,
+    });
+  };
 
   return (
     <div className="min-h-screen">
@@ -55,17 +95,34 @@ const LinhaArticulados = () => {
               Equipamentos da Linha Articulados
             </h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              Em breve, fotos e informações detalhadas de cada aparelho.
+              Confira nossos equipamentos articulados de alta performance.
             </p>
             
-            {/* Placeholder for equipment gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
+              {equipment.map((item) => (
                 <div 
-                  key={item} 
-                  className="bg-muted/50 rounded-lg aspect-square flex items-center justify-center border border-border"
+                  key={item.id} 
+                  className="group bg-background rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all duration-300"
                 >
-                  <span className="text-muted-foreground">Equipamento {item}</span>
+                  <div className="aspect-square overflow-hidden bg-muted">
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-heading font-semibold text-lg mb-3">{item.name}</h3>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full"
+                      onClick={() => handleAddToQuote(item)}
+                    >
+                      <Plus className="w-4 h-4 mr-2" />
+                      Adicionar ao Orçamento
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
