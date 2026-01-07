@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,29 +17,43 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <CartProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/linha-platinum" element={<LinhaPlatinum />} />
-            <Route path="/linha-gold" element={<LinhaGold />} />
-            <Route path="/peso-livre" element={<PesoLivre />} />
-            <Route path="/linha-articulados" element={<LinhaArticulados />} />
-            <Route path="/linha-pro-diamond" element={<LinhaProDiamond />} />
-            <Route path="/linha-cardio" element={<LinhaCardio />} />
-            <Route path="/orcamento" element={<Orcamento />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </CartProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  useEffect(() => {
+    // Disable right-click context menu on images
+    const handleContextMenu = (e: MouseEvent) => {
+      if ((e.target as HTMLElement).tagName === 'IMG') {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    return () => document.removeEventListener('contextmenu', handleContextMenu);
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <CartProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/linha-platinum" element={<LinhaPlatinum />} />
+              <Route path="/linha-gold" element={<LinhaGold />} />
+              <Route path="/peso-livre" element={<PesoLivre />} />
+              <Route path="/linha-articulados" element={<LinhaArticulados />} />
+              <Route path="/linha-pro-diamond" element={<LinhaProDiamond />} />
+              <Route path="/linha-cardio" element={<LinhaCardio />} />
+              <Route path="/orcamento" element={<Orcamento />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </CartProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
