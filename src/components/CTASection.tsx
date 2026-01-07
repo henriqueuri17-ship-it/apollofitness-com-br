@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
 export const CTASection = () => {
   const phoneNumber = "5517997712913";
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=Acabei%20de%20ver%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento`;
   const phoneUrl = `tel:+${phoneNumber}`;
   return <section className="py-24 bg-gradient-primary relative overflow-hidden">
       {/* Background pattern */}
