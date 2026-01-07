@@ -17,6 +17,11 @@ import desenvolvimento from "@/assets/articulados/desenvolvimento.jpg";
 import gluteo from "@/assets/articulados/gluteo.jpg";
 import biceps from "@/assets/articulados/biceps.jpg";
 import peckDeck from "@/assets/articulados/peck-deck.jpg";
+import extensora from "@/assets/articulados/extensora.jpg";
+import pulley from "@/assets/articulados/pulley.jpg";
+import supinoReto from "@/assets/articulados/supino-reto.jpg";
+import desenvolvimentoSentado from "@/assets/articulados/desenvolvimento-sentado.jpg";
+import triceps from "@/assets/articulados/triceps.jpg";
 
 const equipment = [
   { id: "art-1", name: "Leg Press Articulado", image: legPress },
@@ -28,6 +33,11 @@ const equipment = [
   { id: "art-7", name: "Glúteo Articulado", image: gluteo },
   { id: "art-8", name: "Bíceps Articulado", image: biceps },
   { id: "art-9", name: "Peck Deck Articulado", image: peckDeck },
+  { id: "art-10", name: "Extensora Articulada", image: extensora },
+  { id: "art-11", name: "Pulley Articulado", image: pulley },
+  { id: "art-12", name: "Supino Reto Articulado", image: supinoReto },
+  { id: "art-13", name: "Desenvolvimento Sentado Articulado", image: desenvolvimentoSentado },
+  { id: "art-14", name: "Tríceps Articulado", image: triceps },
 ];
 
 const LinhaArticulados = () => {
