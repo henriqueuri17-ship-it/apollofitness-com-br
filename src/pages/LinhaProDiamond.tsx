@@ -16,6 +16,14 @@ import puxadaArticulada from "@/assets/pro-diamond/puxada-articulada.png";
 import remadaGuiada from "@/assets/pro-diamond/remada-guiada.png";
 import remadaLowRow from "@/assets/pro-diamond/remada-low-row.png";
 import remadaSentadaConvergente from "@/assets/pro-diamond/remada-sentada-convergente.png";
+import flyCrucifixo from "@/assets/pro-diamond/fly-crucifixo.png";
+import hackSquat from "@/assets/pro-diamond/hack-squat.png";
+import legPendulo from "@/assets/pro-diamond/leg-pendulo.png";
+import legPress45 from "@/assets/pro-diamond/leg-press-45.png";
+import legPress90 from "@/assets/pro-diamond/leg-press-90.png";
+import supinoReto from "@/assets/pro-diamond/supino-reto.png";
+import supinoVertical2 from "@/assets/pro-diamond/supino-vertical-2.png";
+import supinoVertical from "@/assets/pro-diamond/supino-vertical.png";
 
 const equipment = [
   { id: "prodiamond-1", name: "Abdutor Glúteo Pro Diamond", image: abdutorGluteo },
@@ -28,6 +36,14 @@ const equipment = [
   { id: "prodiamond-8", name: "Remada Guiada Pro Diamond", image: remadaGuiada },
   { id: "prodiamond-9", name: "Remada Low Row Pro Diamond", image: remadaLowRow },
   { id: "prodiamond-10", name: "Remada Sentada Convergente Pro Diamond", image: remadaSentadaConvergente },
+  { id: "prodiamond-11", name: "Fly Crucifixo Pro Diamond", image: flyCrucifixo },
+  { id: "prodiamond-12", name: "Hack Squat Pro Diamond", image: hackSquat },
+  { id: "prodiamond-13", name: "Leg Pêndulo Pro Diamond", image: legPendulo },
+  { id: "prodiamond-14", name: "Leg Press 45° Pro Diamond", image: legPress45 },
+  { id: "prodiamond-15", name: "Leg Press 90° Pro Diamond", image: legPress90 },
+  { id: "prodiamond-16", name: "Supino Reto Pro Diamond", image: supinoReto },
+  { id: "prodiamond-17", name: "Supino Vertical Pro Diamond", image: supinoVertical2 },
+  { id: "prodiamond-18", name: "Supino Vertical Pro Diamond II", image: supinoVertical },
 ];
 
 const LinhaProDiamond = () => {
