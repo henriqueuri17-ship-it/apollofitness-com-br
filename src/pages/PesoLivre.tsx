@@ -16,6 +16,14 @@ import sissySquat from "@/assets/peso-livre/sissy-squat.png";
 import cadeiraRomana from "@/assets/peso-livre/cadeira-romana.png";
 import supinoInclinado from "@/assets/peso-livre/supino-inclinado.png";
 import paralela from "@/assets/peso-livre/paralela.png";
+import rackAgachamento from "@/assets/peso-livre/rack-agachamento.png";
+import banco90 from "@/assets/peso-livre/banco-90.png";
+import panturrilha from "@/assets/peso-livre/panturrilha.png";
+import hackMachine from "@/assets/peso-livre/hack-machine.png";
+import bancoReto from "@/assets/peso-livre/banco-reto.png";
+import bancoRegulavel from "@/assets/peso-livre/banco-regulavel.png";
+import legPress45 from "@/assets/peso-livre/leg-press-45.png";
+import lombar45 from "@/assets/peso-livre/lombar-45.png";
 
 const equipments = [
   { id: "pesolivre-supino-reto", name: "Supino Reto", image: supinoReto },
@@ -28,6 +36,14 @@ const equipments = [
   { id: "pesolivre-cadeira-romana", name: "Cadeira Romana", image: cadeiraRomana },
   { id: "pesolivre-supino-inclinado", name: "Supino Inclinado", image: supinoInclinado },
   { id: "pesolivre-paralela", name: "Paralela", image: paralela },
+  { id: "pesolivre-rack-agachamento", name: "Rack Agachamento", image: rackAgachamento },
+  { id: "pesolivre-banco-90", name: "Banco 90°", image: banco90 },
+  { id: "pesolivre-panturrilha", name: "Panturrilha", image: panturrilha },
+  { id: "pesolivre-hack-machine", name: "Hack Machine", image: hackMachine },
+  { id: "pesolivre-banco-reto", name: "Banco Reto", image: bancoReto },
+  { id: "pesolivre-banco-regulavel", name: "Banco Regulável", image: bancoRegulavel },
+  { id: "pesolivre-leg-press-45", name: "Leg Press 45°", image: legPress45 },
+  { id: "pesolivre-lombar-45", name: "Lombar 45°", image: lombar45 },
 ];
 
 const PesoLivre = () => {
