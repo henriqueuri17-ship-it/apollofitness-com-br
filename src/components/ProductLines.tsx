@@ -87,19 +87,19 @@ export const ProductLines = () => {
   ];
 
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
+    <section className="py-12 md:py-24 bg-background">
+      <div className="container mx-auto px-3 md:px-4">
+        <div className="text-center mb-6 md:mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <h2 className="font-heading text-2xl md:text-5xl font-bold mb-2 md:mb-4">
             Linhas de Produtos Premium
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Equipamentos desenvolvidos para diferentes perfis e necessidades, sempre mantendo 
             nossa excelência em qualidade e design.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {products.map((product, index) => (
             <Card
               key={index}
@@ -107,36 +107,36 @@ export const ProductLines = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-28 md:h-64 overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                <Badge className={`absolute top-4 left-4 text-white ${product.badgeColor || "bg-primary"}`}>
+                <Badge className={`absolute top-2 left-2 md:top-4 md:left-4 text-white text-[10px] md:text-xs ${product.badgeColor || "bg-primary"}`}>
                   {product.badge}
                 </Badge>
               </div>
 
-              <CardHeader>
-                <CardTitle className="font-heading text-2xl">{product.title}</CardTitle>
-                <CardDescription className="text-base">{product.description}</CardDescription>
+              <CardHeader className="p-2 md:p-6">
+                <CardTitle className="font-heading text-sm md:text-2xl">{product.title}</CardTitle>
+                <CardDescription className="text-[10px] md:text-base line-clamp-2">{product.description}</CardDescription>
               </CardHeader>
 
-              <CardContent>
-                <ul className="space-y-3">
+              <CardContent className="p-2 pt-0 md:p-6 md:pt-0 hidden md:block">
+                <ul className="space-y-2 md:space-y-3">
                   {product.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-muted-foreground">{feature}</span>
+                    <li key={idx} className="flex items-start gap-1 md:gap-2">
+                      <Check className="w-3 h-3 md:w-5 md:h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-[10px] md:text-sm text-muted-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
 
-              <CardFooter>
-                <Button asChild className="w-full" variant="outline">
+              <CardFooter className="p-2 md:p-6 pt-0 md:pt-0">
+                <Button asChild className="w-full text-xs md:text-sm h-8 md:h-10" variant="outline">
                   <Link to={product.link}>Conferir</Link>
                 </Button>
               </CardFooter>
