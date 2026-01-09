@@ -2,11 +2,50 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, Plus, Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
+
+import abdutorGluteo from "@/assets/pro-diamond/abdutor-gluteo.png";
+import desenvolvimentoOmbroVertical from "@/assets/pro-diamond/desenvolvimento-ombro-vertical.png";
+import desenvolvimentoOmbro from "@/assets/pro-diamond/desenvolvimento-ombro.png";
+import extensorUnilateral from "@/assets/pro-diamond/extensor-unilateral.png";
+import flexorUnilateral from "@/assets/pro-diamond/flexor-unilateral.png";
+import legPressUnilateral from "@/assets/pro-diamond/leg-press-unilateral.png";
+import puxadaArticulada from "@/assets/pro-diamond/puxada-articulada.png";
+import remadaGuiada from "@/assets/pro-diamond/remada-guiada.png";
+import remadaLowRow from "@/assets/pro-diamond/remada-low-row.png";
+import remadaSentadaConvergente from "@/assets/pro-diamond/remada-sentada-convergente.png";
+
+const equipment = [
+  { id: "prodiamond-1", name: "Abdutor Glúteo Pro Diamond", image: abdutorGluteo },
+  { id: "prodiamond-2", name: "Desenvolvimento Ombro Vertical Pro Diamond", image: desenvolvimentoOmbroVertical },
+  { id: "prodiamond-3", name: "Desenvolvimento Ombro Pro Diamond", image: desenvolvimentoOmbro },
+  { id: "prodiamond-4", name: "Extensor Unilateral Pro Diamond", image: extensorUnilateral },
+  { id: "prodiamond-5", name: "Flexor Unilateral Pro Diamond", image: flexorUnilateral },
+  { id: "prodiamond-6", name: "Leg Press Unilateral Pro Diamond", image: legPressUnilateral },
+  { id: "prodiamond-7", name: "Puxada Articulada Pro Diamond", image: puxadaArticulada },
+  { id: "prodiamond-8", name: "Remada Guiada Pro Diamond", image: remadaGuiada },
+  { id: "prodiamond-9", name: "Remada Low Row Pro Diamond", image: remadaLowRow },
+  { id: "prodiamond-10", name: "Remada Sentada Convergente Pro Diamond", image: remadaSentadaConvergente },
+];
 
 const LinhaProDiamond = () => {
+  const { addItem, removeItem, isInCart } = useCart();
   const whatsappUrl = "https://wa.me/5517997712913?text=Olá! Gostaria de saber mais sobre a Linha Pro Diamond.";
+
+  const handleToggleItem = (equip: typeof equipment[0]) => {
+    if (isInCart(equip.id)) {
+      removeItem(equip.id);
+    } else {
+      addItem({
+        id: equip.id,
+        name: equip.name,
+        image: equip.image,
+        line: "Pro Diamond",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -55,19 +94,54 @@ const LinhaProDiamond = () => {
               Equipamentos da Linha Pro Diamond
             </h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              Em breve, fotos e informações detalhadas de cada aparelho.
+              Selecione os equipamentos desejados e adicione ao carrinho de orçamento.
             </p>
             
-            {/* Placeholder for equipment gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div 
-                  key={item} 
-                  className="bg-muted/50 rounded-lg aspect-square flex items-center justify-center border border-border"
-                >
-                  <span className="text-muted-foreground">Equipamento {item}</span>
-                </div>
-              ))}
+              {equipment.map((equip) => {
+                const inCart = isInCart(equip.id);
+                return (
+                  <div 
+                    key={equip.id} 
+                    className={`group bg-background rounded-lg overflow-hidden border shadow-md hover:shadow-xl transition-all duration-300 ${
+                      inCart ? "border-primary ring-2 ring-primary/20" : "border-border"
+                    }`}
+                  >
+                    <div className="aspect-square overflow-hidden bg-muted relative">
+                      <img 
+                        src={equip.image} 
+                        alt={equip.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {inCart && (
+                        <div className="absolute top-3 right-3 bg-primary text-primary-foreground rounded-full p-1">
+                          <Check className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-4 flex items-center justify-between">
+                      <h3 className="font-heading font-semibold text-lg">{equip.name}</h3>
+                      <Button
+                        variant={inCart ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleToggleItem(equip)}
+                      >
+                        {inCart ? (
+                          <>
+                            <Check className="w-4 h-4 mr-1" />
+                            Adicionado
+                          </>
+                        ) : (
+                          <>
+                            <Plus className="w-4 h-4 mr-1" />
+                            Adicionar
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
