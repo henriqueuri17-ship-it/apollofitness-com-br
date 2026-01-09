@@ -21,19 +21,19 @@ export const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-dark">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
+    <section className="py-12 md:py-24 bg-gradient-dark">
+      <div className="container mx-auto px-3 md:px-4">
+        <div className="text-center mb-8 md:mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <h2 className="font-heading text-2xl md:text-5xl font-bold mb-2 md:mb-4">
             A escolha de profissionais exigentes
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Referência nacional em fabricação de equipamentos fitness premium, com mais de 15 anos 
             transformando projetos em academias de sucesso.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-2 md:gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -42,14 +42,14 @@ export const Features = () => {
                 className="bg-card/50 backdrop-blur border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card animate-in fade-in slide-in-from-bottom-6 duration-700"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
+                <CardHeader className="p-3 md:p-6">
+                  <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2 md:mb-4">
+                    <Icon className="w-4 h-4 md:w-6 md:h-6 text-primary" />
                   </div>
-                  <CardTitle className="font-heading text-2xl">{feature.title}</CardTitle>
+                  <CardTitle className="font-heading text-sm md:text-2xl">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{feature.description}</CardDescription>
+                <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
+                  <CardDescription className="text-xs md:text-base">{feature.description}</CardDescription>
                 </CardContent>
               </Card>
             );
