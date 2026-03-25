@@ -45,13 +45,11 @@ export const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <NavItem
                 key={item.href}
-                href={item.href}
+                item={item}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.label}
-              </a>
+              />
             ))}
           </div>
 
