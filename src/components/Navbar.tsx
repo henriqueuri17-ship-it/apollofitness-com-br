@@ -8,7 +8,7 @@ import apolloLogo from "@/assets/apollo-logo.png";
 const navItems = [
   { label: "Início", href: "#inicio" },
   { label: "Linhas", href: "#linhas" },
-  { label: "Catálogo", href: "#catalogo" },
+  { label: "Catálogo", href: "/catalogo", isRoute: true },
   { label: "Orçamento", href: "#orcamento" },
   { label: "Contatos", href: "#contatos" },
 ];
