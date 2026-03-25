@@ -5,13 +5,28 @@ import { Button } from "@/components/ui/button";
 import { CartButton } from "@/components/CartButton";
 import apolloLogo from "@/assets/apollo-logo.png";
 
-const navItems = [
-  { label: "Início", href: "#inicio" },
-  { label: "Linhas", href: "#linhas" },
+const navItems: { label: string; href: string; isRoute?: boolean }[] = [
+  { label: "Início", href: "/" , isRoute: true },
+  { label: "Linhas", href: "/#linhas" },
   { label: "Catálogo", href: "/catalogo", isRoute: true },
-  { label: "Orçamento", href: "#orcamento" },
-  { label: "Contatos", href: "#contatos" },
+  { label: "Orçamento", href: "/#orcamento" },
+  { label: "Contatos", href: "/#contatos" },
 ];
+
+const NavItem = ({ item, className, onClick }: { item: typeof navItems[0]; className?: string; onClick?: () => void }) => {
+  if (item.isRoute) {
+    return (
+      <Link to={item.href} className={className} onClick={onClick}>
+        {item.label}
+      </Link>
+    );
+  }
+  return (
+    <a href={item.href} className={className} onClick={onClick}>
+      {item.label}
+    </a>
+  );
+};
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
