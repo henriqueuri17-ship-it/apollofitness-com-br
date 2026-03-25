@@ -4,8 +4,6 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-
 import capa from "@/assets/catalogo/capa.png";
 import platinumCapa from "@/assets/catalogo/platinum-capa.png";
 import page03 from "@/assets/catalogo/page-03.png";
@@ -36,6 +34,16 @@ import page27 from "@/assets/catalogo/page-27.png";
 import page28 from "@/assets/catalogo/page-28.png";
 import page29 from "@/assets/catalogo/page-29.png";
 import page30 from "@/assets/catalogo/page-30.png";
+import page31 from "@/assets/catalogo/page-31.png";
+import page32 from "@/assets/catalogo/page-32.png";
+import page33 from "@/assets/catalogo/page-33.png";
+import page34 from "@/assets/catalogo/page-34.png";
+import page35 from "@/assets/catalogo/page-35.png";
+import page36 from "@/assets/catalogo/page-36.png";
+import page37 from "@/assets/catalogo/page-37.png";
+import page38 from "@/assets/catalogo/page-38.png";
+import page39 from "@/assets/catalogo/page-39.png";
+import page40 from "@/assets/catalogo/page-40.png";
 
 const pages = [
   capa,
@@ -68,6 +76,16 @@ const pages = [
   page28,
   page29,
   page30,
+  page31,
+  page32,
+  page33,
+  page34,
+  page35,
+  page36,
+  page37,
+  page38,
+  page39,
+  page40,
 ];
 
 const Catalogo = () => {
