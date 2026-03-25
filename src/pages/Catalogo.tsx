@@ -16,6 +16,16 @@ import page07 from "@/assets/catalogo/page-07.png";
 import page08 from "@/assets/catalogo/page-08.png";
 import page09 from "@/assets/catalogo/page-09.png";
 import page10 from "@/assets/catalogo/page-10.png";
+import page11 from "@/assets/catalogo/page-11.png";
+import page12 from "@/assets/catalogo/page-12.png";
+import page13 from "@/assets/catalogo/page-13.png";
+import page14 from "@/assets/catalogo/page-14.png";
+import page15 from "@/assets/catalogo/page-15.png";
+import page16 from "@/assets/catalogo/page-16.png";
+import page17 from "@/assets/catalogo/page-17.png";
+import page18 from "@/assets/catalogo/page-18.png";
+import page19 from "@/assets/catalogo/page-19.png";
+import page20 from "@/assets/catalogo/page-20.png";
 
 const pages = [
   capa,
@@ -28,6 +38,16 @@ const pages = [
   page08,
   page09,
   page10,
+  page11,
+  page12,
+  page13,
+  page14,
+  page15,
+  page16,
+  page17,
+  page18,
+  page19,
+  page20,
 ];
 
 const Catalogo = () => {
