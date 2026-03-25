@@ -82,14 +82,12 @@ export const Navbar = () => {
           <div className="md:hidden py-4 border-t border-border/50 animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <NavItem
                   key={item.href}
-                  href={item.href}
+                  item={item}
                   className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
                   onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
+                />
               ))}
               <Button size="sm" className="gap-2 w-full mt-2" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
