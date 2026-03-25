@@ -5,13 +5,28 @@ import { Button } from "@/components/ui/button";
 import { CartButton } from "@/components/CartButton";
 import apolloLogo from "@/assets/apollo-logo.png";
 
-const navItems = [
-  { label: "Início", href: "#inicio" },
-  { label: "Linhas", href: "#linhas" },
-  { label: "Catálogo", href: "#catalogo" },
-  { label: "Orçamento", href: "#orcamento" },
-  { label: "Contatos", href: "#contatos" },
+const navItems: { label: string; href: string; isRoute?: boolean }[] = [
+  { label: "Início", href: "/" , isRoute: true },
+  { label: "Linhas", href: "/#linhas" },
+  { label: "Catálogo", href: "/catalogo", isRoute: true },
+  { label: "Orçamento", href: "/#orcamento" },
+  { label: "Contatos", href: "/#contatos" },
 ];
+
+const NavItem = ({ item, className, onClick }: { item: typeof navItems[0]; className?: string; onClick?: () => void }) => {
+  if (item.isRoute) {
+    return (
+      <Link to={item.href} className={className} onClick={onClick}>
+        {item.label}
+      </Link>
+    );
+  }
+  return (
+    <a href={item.href} className={className} onClick={onClick}>
+      {item.label}
+    </a>
+  );
+};
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,13 +45,11 @@ export const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <NavItem
                 key={item.href}
-                href={item.href}
+                item={item}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.label}
-              </a>
+              />
             ))}
           </div>
 
@@ -69,14 +82,12 @@ export const Navbar = () => {
           <div className="md:hidden py-4 border-t border-border/50 animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <NavItem
                   key={item.href}
-                  href={item.href}
+                  item={item}
                   className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
                   onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
+                />
               ))}
               <Button size="sm" className="gap-2 w-full mt-2" asChild>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">

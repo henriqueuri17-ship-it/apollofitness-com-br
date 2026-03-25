@@ -12,6 +12,7 @@ import PesoLivre from "./pages/PesoLivre";
 import LinhaArticulados from "./pages/LinhaArticulados";
 import LinhaProDiamond from "./pages/LinhaProDiamond";
 import LinhaCardio from "./pages/LinhaCardio";
+import Catalogo from "./pages/Catalogo";
 import Orcamento from "./pages/Orcamento";
 import NotFound from "./pages/NotFound";
 
@@ -45,6 +46,7 @@ const App = () => {
               <Route path="/linha-articulados" element={<LinhaArticulados />} />
               <Route path="/linha-pro-diamond" element={<LinhaProDiamond />} />
               <Route path="/linha-cardio" element={<LinhaCardio />} />
+              <Route path="/catalogo" element={<Catalogo />} />
               <Route path="/orcamento" element={<Orcamento />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
