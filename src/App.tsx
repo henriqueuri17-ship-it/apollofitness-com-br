@@ -46,6 +46,7 @@ const App = () => {
               <Route path="/linha-articulados" element={<LinhaArticulados />} />
               <Route path="/linha-pro-diamond" element={<LinhaProDiamond />} />
               <Route path="/linha-cardio" element={<LinhaCardio />} />
+              <Route path="/catalogo" element={<Catalogo />} />
               <Route path="/orcamento" element={<Orcamento />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
