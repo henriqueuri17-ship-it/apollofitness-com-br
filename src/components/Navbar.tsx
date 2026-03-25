@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CartButton } from "@/components/CartButton";
@@ -22,9 +23,9 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#inicio">
+          <Link to="/">
             <img src={apolloLogo} alt="Apollo Fitness" className="h-8" />
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
