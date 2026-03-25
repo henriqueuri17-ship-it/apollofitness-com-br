@@ -12,6 +12,7 @@ import PesoLivre from "./pages/PesoLivre";
 import LinhaArticulados from "./pages/LinhaArticulados";
 import LinhaProDiamond from "./pages/LinhaProDiamond";
 import LinhaCardio from "./pages/LinhaCardio";
+import Catalogo from "./pages/Catalogo";
 import Orcamento from "./pages/Orcamento";
 import NotFound from "./pages/NotFound";
 
