@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CartButton } from "@/components/CartButton";
-import apolloLogo from "@/assets/apollo-logo.png";
+import apolloLogo from "@/assets/logo-apollo.png";
 
 const navItems: { label: string; href: string; isRoute?: boolean }[] = [
   { label: "Início", href: "/" , isRoute: true },
