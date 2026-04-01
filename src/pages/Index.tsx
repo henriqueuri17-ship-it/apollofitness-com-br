@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustBadges } from "@/components/TrustBadges";
-import { Features } from "@/components/Features";
+
 import { HowToQuote } from "@/components/HowToQuote";
 import { ProductLines } from "@/components/ProductLines";
 import { CTASection } from "@/components/CTASection";
@@ -16,7 +16,7 @@ const Index = () => {
         <Hero />
       </section>
       <TrustBadges />
-      <Features />
+      
       <HowToQuote />
       <section id="linhas">
         <ProductLines />
