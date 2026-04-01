@@ -16,7 +16,7 @@ const Index = () => {
         <Hero />
       </section>
       <TrustBadges />
-      <Features />
+      
       <HowToQuote />
       <section id="linhas">
         <ProductLines />
