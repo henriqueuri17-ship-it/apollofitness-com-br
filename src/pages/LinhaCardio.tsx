@@ -2,50 +2,36 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, Plus, Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
 
 import cardioEscada from "@/assets/cardio-escada.png";
 import cardioEsteiraLateral from "@/assets/cardio-esteira-lateral.jpg";
-import cardioEsteiraPainel from "@/assets/cardio-esteira-painel.jpg";
-import cardioEsteiraFrente from "@/assets/cardio-esteira-frente.jpg";
-import cardioEscadaDetalhe1 from "@/assets/cardio-escada-detalhe1.webp";
-import cardioEscadaDetalhe2 from "@/assets/cardio-escada-detalhe2.webp";
-import cardioEscadaDetalhe3 from "@/assets/cardio-escada-detalhe3.webp";
 import cardioBike from "@/assets/cardio-bike.png";
 
-const LinhaCardio = () => {
-  const whatsappUrl = "https://wa.me/5517997712913?text=Olá! Gostaria de saber mais sobre a Linha Cardio.";
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const equipments = [
+  { id: "cardio-esteira", name: "Esteira Profissional", image: cardioEsteiraLateral },
+  { id: "cardio-simulador-escada", name: "Simulador de Escada", image: cardioEscada },
+  { id: "cardio-bike-spinning", name: "Bicicleta Spinning", image: cardioBike },
+];
 
-  const equipamentos = [
-    {
-      name: "Simulador de Escada Profissional",
-      image: cardioEscada,
-      details: [cardioEscadaDetalhe1, cardioEscadaDetalhe2, cardioEscadaDetalhe3],
-    },
-    {
-      name: "Esteira Profissional - Vista Lateral",
-      image: cardioEsteiraLateral,
-      details: [],
-    },
-    {
-      name: "Esteira Profissional - Painel",
-      image: cardioEsteiraPainel,
-      details: [],
-    },
-    {
-      name: "Esteira Profissional - Detalhes",
-      image: cardioEsteiraFrente,
-      details: [],
-    },
-    {
-      name: "Bicicleta Spinning Profissional",
-      image: cardioBike,
-      details: [],
-    },
-  ];
+const LinhaCardio = () => {
+  const { addItem, removeItem, isInCart } = useCart();
+  const whatsappUrl = "https://wa.me/5517997712913?text=Olá! Gostaria de saber mais sobre a Linha Cardio.";
+
+  const handleToggleItem = (equipment: typeof equipments[0]) => {
+    if (isInCart(equipment.id)) {
+      removeItem(equipment.id);
+    } else {
+      addItem({
+        id: equipment.id,
+        name: equipment.name,
+        image: equipment.image,
+        line: "Linha Cardio",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -87,53 +73,65 @@ const LinhaCardio = () => {
           </div>
         </section>
 
-        {/* Equipment Gallery */}
+        {/* Equipment Gallery Section */}
         <section className="py-24 bg-card">
           <div className="container mx-auto px-4">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4">
               Equipamentos da Linha Cardio
             </h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              Conheça nossos equipamentos de cardio profissionais.
+              Selecione os equipamentos desejados e adicione ao carrinho de orçamento.
             </p>
             
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-              {equipamentos.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-background rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg cursor-pointer group"
-                  onClick={() => setSelectedImage(item.image)}
-                >
-                  <div className="aspect-square overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
-                    />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {equipments.map((equipment) => {
+                const inCart = isInCart(equipment.id);
+                return (
+                  <div 
+                    key={equipment.id} 
+                    className={`group bg-background rounded-lg overflow-hidden border shadow-md hover:shadow-xl transition-all duration-300 ${
+                      inCart ? "border-primary ring-2 ring-primary/20" : "border-border"
+                    }`}
+                  >
+                    <div className="aspect-square overflow-hidden bg-muted relative">
+                      <img 
+                        src={equipment.image} 
+                        alt={equipment.name}
+                        className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {inCart && (
+                        <div className="absolute top-3 right-3 bg-primary text-primary-foreground rounded-full p-1">
+                          <Check className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-4 flex items-center justify-between">
+                      <h3 className="font-heading font-semibold text-lg">{equipment.name}</h3>
+                      <Button
+                        variant={inCart ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleToggleItem(equipment)}
+                      >
+                        {inCart ? (
+                          <>
+                            <Check className="w-4 h-4 mr-1" />
+                            Adicionado
+                          </>
+                        ) : (
+                          <>
+                            <Plus className="w-4 h-4 mr-1" />
+                            Adicionar
+                          </>
+                        )}
+                      </Button>
+                    </div>
                   </div>
-                  <div className="p-3 md:p-4 border-t border-border">
-                    <h3 className="text-xs md:text-sm font-semibold text-center">{item.name}</h3>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
       </main>
-
-      {/* Lightbox */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="Equipamento"
-            className="max-w-full max-h-[90vh] object-contain rounded-lg"
-          />
-        </div>
-      )}
 
       <Footer />
       <WhatsAppButton />
