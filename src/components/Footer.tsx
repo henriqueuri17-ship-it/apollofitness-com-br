@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 export const Footer = () => {
   return <footer className="bg-card border-t border-border py-8 md:py-12">
       <div className="container mx-auto px-3 md:px-4">
@@ -36,22 +37,27 @@ export const Footer = () => {
             <h4 className="font-heading text-sm md:text-lg font-semibold mb-2 md:mb-4">Informações</h4>
             <ul className="space-y-2 md:space-y-3">
               <li>
-                <a href="#" className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors">
-                  Sobre Nós
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/catalogo" className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors">
                   Catálogo de Produtos
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors">
-                  Projetos Realizados
-                </a>
+                <Link to="/linha-platinum" className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors">
+                  Linhas de Equipamentos
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/orcamento" className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors">
+                  Solicitar Orçamento
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/5517997712913?text=Acabei%20de%20ver%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs md:text-base text-muted-foreground hover:text-primary transition-colors"
+                >
                   Fale Conosco
                 </a>
               </li>
