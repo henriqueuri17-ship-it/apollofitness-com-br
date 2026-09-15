@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { RouteSeo } from "@/components/RouteSeo";
 import Index from "./pages/Index";
 import LinhaPlatinum from "./pages/LinhaPlatinum";
 import LinhaGold from "./pages/LinhaGold";
@@ -40,6 +41,7 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <RouteSeo />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/linha-platinum" element={<LinhaPlatinum />} />

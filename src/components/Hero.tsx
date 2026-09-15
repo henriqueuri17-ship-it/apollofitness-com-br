@@ -8,7 +8,13 @@ import banner3 from "@/assets/banners/banner-3.png";
 import banner4 from "@/assets/banners/banner-4.png";
 import banner5 from "@/assets/banners/banner-5.png";
 
-const banners = [banner1, banner2, banner3, banner4, banner5];
+const banners = [
+  { src: banner1, alt: "Aparelhos de academia Apollo Fitness em academia profissional equipada" },
+  { src: banner2, alt: "Linha de musculação Apollo Fitness com acabamento premium" },
+  { src: banner3, alt: "Equipamentos de peso livre e racks Apollo Fitness" },
+  { src: banner4, alt: "Equipamentos de cardio Apollo Fitness: esteira e bike de spinning" },
+  { src: banner5, alt: "Academia completa equipada com aparelhos Apollo Fitness" },
+];
 
 export const Hero = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -32,11 +38,11 @@ export const Hero = () => {
     <section className="relative w-full">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {banners.map((src, i) => (
+          {banners.map((banner, i) => (
             <div key={i} className="min-w-0 shrink-0 grow-0 basis-full">
               <img
-                src={src}
-                alt={`Banner Apollo ${i + 1}`}
+                src={banner.src}
+                alt={banner.alt}
                 className="w-full h-auto object-cover"
                 loading={i === 0 ? "eager" : "lazy"}
               />
