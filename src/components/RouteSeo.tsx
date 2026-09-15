@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
 const SITE_URL = "https://apollofitness.com.br";
+const OG_IMAGE = `${SITE_URL}/__l5e/assets-v1/f83518eb-4fef-4350-939b-d487b556c33f/og-apollo-fitness.jpg`;
 
 type Meta = { title: string; description: string; noindex?: boolean };
 
@@ -86,6 +87,8 @@ export const RouteSeo = () => {
       <meta property="og:type" content="website" />
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
+      <meta property="og:image" content={OG_IMAGE} />
+      <meta name="twitter:image" content={OG_IMAGE} />
       {meta.noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
     </Helmet>
   );
