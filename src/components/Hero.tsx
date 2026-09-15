@@ -66,6 +66,17 @@ export const Hero = () => {
           />
         ))}
       </div>
+
+      {/* Main heading */}
+      <div className="container mx-auto px-3 md:px-4 py-6 md:py-10 text-center">
+        <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold">
+          Aparelhos de Academia Profissionais
+        </h1>
+        <p className="mt-2 md:mt-4 text-sm md:text-lg text-muted-foreground max-w-3xl mx-auto">
+          A Apollo Fitness fabrica aparelhos de academia para musculação, cardio e peso livre.
+          Mais de 800 academias equipadas no Brasil, com garantia estendida e suporte nacional.
+        </p>
+      </div>
     </section>
   );
 };
